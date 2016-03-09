@@ -6,7 +6,18 @@ window.addEventListener('load', function() {
 		document.querySelector(".pokrivalo").style.display="none";
 		                                  //.style.visibility="hidden";
 	}
+	var dodajOpomnik = function(event){
+		var ime_op = document.querySelector("#naziv_opomnika").value;
+		var cas_op = document.querySelector("#cas_opomnika").value;
+		document.querySelector("#naziv_opomnika").value = "";
+		document.querySelector("#cas_opomnika").value = "";
+		document.querySelector("#opomniki").innerHTML += "<div class='opomnik'> <div class='naziv_opomnika'>"+ime_op+ "</div> <div class='cas_opomnika'> Opomnik čez <span>"+cas_op+"</span> sekund.</div> </div>";
+	
+	}
+	
 	document.querySelector("#prijavniGumb").addEventListener('click',izvediPrijavo);
+	document.querySelector("#dodajGumb").addEventListener('click',dodajOpomnik);
+	
 	//Posodobi opomnike
 	var posodobiOpomnike = function() {
 		var opomniki = document.querySelectorAll(".opomnik");
